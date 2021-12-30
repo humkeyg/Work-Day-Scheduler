@@ -24,6 +24,15 @@ textarea {
   white-space: pre-wrap;
 }
 
+.time {
+  font-size:large;
+  padding-top: 20px;
+}
+
+span {
+  font-weight:bold;
+}
+
 .time-block {
   text-align: right;
   border-radius: 15px;
@@ -38,6 +47,7 @@ textarea {
 .hour {
   color: #000000;
   border-top: 1px dashed #000000;
+  border-bottom: 1px dashed #000000;
 }
 
 .past {
