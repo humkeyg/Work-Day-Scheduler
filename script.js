@@ -27,11 +27,18 @@ function hourCheck() {
     }
   }
 }
+
 function save(event) {
-  let scheduleValue=event.target.parentElement.previousElementSibling.children[0].value;
-  let scheduleKey=event.target.parentElement.previousElementSibling.children[0].getAttribute('data-description');
-  console.log(scheduleValue);
-  localStorage.setItem(scheduleKey, scheduleValue);
+  const id=event.target.dataset.schedulekey;
+  const key=`scheduleKey-${id}`;
+  console.log(key);
+  const value=document.getElementById(key).value;
+  console.log(value);
+  // let scheduleValue=event.target.parentElement.previousElementSibling.children[0].value;
+  // let scheduleKey=event.target.parentElement.previousElementSibling.children[0].getAttribute('id');
+  // console.log(scheduleKey, scheduleValue);
+  // localStorage.setItem(scheduleKey, scheduleValue);
+  localStorage.setItem(key, value);
 }
 
 let btnArray = document.querySelectorAll('.saveBtn')
@@ -45,22 +52,21 @@ for (let index = 0; index < btnArray.length; index++) {
 }
 
 //make into savetext function
-function saveText() {
-  let textArray=document.querySelectorAll('.description')
+function loadText() {
   //put all text areas in an array
+  let textArray=document.querySelectorAll('.description')
   for (let index = 0; index < textArray.length; index++) {
-    textArray[index];
-    //then if not, don't display anything
-    if (localStorage.getItem(textArray)===null) {
+    const localStorageKey=textArray[index].id;
+    const localStorageValue=localStorage.getItem(localStorageKey);
+    //then if not, don't display anything 
+    if (localStorageValue) {
+      document.getElementById(localStorageKey).value = localStorageValue;
       //then check if there's something for it in local storage, possibly give id value that matches key
-    } else {
-      //if there is, then grab the local storage value and set the text area's value = to that
-      localStorage.setItem(scheduleKey, scheduleValue)
-    }
+    }  
   }
 }
 
-saveText();
+loadText();
 hourCheck();
 setInterval(displayTime, 1000);
 });

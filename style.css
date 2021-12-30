@@ -9,7 +9,6 @@ textarea {
   border: none;
   resize: none;
   color: #000000;
-  /* border-left: 1px solid black; */
   padding: 10px;
 }
 
@@ -26,7 +25,7 @@ textarea {
 }
 
 .time-block {
-  text-align: center;
+  text-align: right;
   border-radius: 15px;
 }
 
@@ -57,14 +56,13 @@ textarea {
 }
 
 .saveBtn {
-  border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   background-color: #06aed5;
   color: white;
 }
 
 .saveBtn i:hover {
-  font-size: 20px;
+  /* font-size: 20px; */
   transition: all 0.3s ease-in-out;
 }
